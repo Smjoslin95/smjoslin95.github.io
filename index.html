@@ -14,13 +14,7 @@
   }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.25rem 3rem;
-    background: rgba(245,240,232,0.92); backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(196,98,45,0.12);
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(245,240,232,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(196,98,45,0.12); }
   .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
@@ -100,6 +94,7 @@
 </style>
 </head>
 <body>
+
 <nav>
   <a href="#" class="nav-logo">SJ</a>
   <ul class="nav-links">
@@ -109,6 +104,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Available for remote roles</div>
@@ -131,6 +127,7 @@
     </div>
   </div>
 </section>
+
 <section class="about" id="about">
   <div class="section-tag">// about me</div>
   <h2>Engineer by degree,<br>operator by experience.</h2>
@@ -150,6 +147,7 @@
     </div>
   </div>
 </section>
+
 <section class="projects" id="projects">
   <div class="section-tag">// projects</div>
   <h2>Things I've built.</h2>
@@ -193,6 +191,7 @@
 
   </div>
 </section>
+
 <section class="experience" id="experience">
   <div class="section-tag">// experience</div>
   <h2>Where I've been.</h2>
@@ -203,6 +202,7 @@
     <div class="timeline-item"><div class="timeline-date">2016–2021</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Assistant Store Manager</h3><div class="company">Starbucks, Massachusetts</div><p>Trained and developed shift teams, oversaw financial reconciliation, and collaborated on revenue goal strategy.</p></div></div>
   </div>
 </section>
+
 <section class="contact" id="contact">
   <div class="section-tag">// contact</div>
   <h2>Let's work together.</h2>
@@ -214,5 +214,6 @@
   </div>
   <p class="footer-note">Samantha Joslin · Maui, Hawaii · Open to Remote · © 2026</p>
 </section>
+
 </body>
 </html>
