@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Joslin — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F5F0E8; --sand: #E8E0D0; --terra: #C4622D;
+    --terra-dark: #9E4A1F; --ocean: #2B5F75; --ink: #1A1612;
+    --ink-light: #4A3F35; --mist: #8A9BA8;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(245,240,232,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(196,98,45,0.12);
+  }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--terra); }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem 4rem 4rem; animation: fadeUp 0.9s ease both; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--terra); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 5vw, 5rem); line-height: 1.05; color: var(--ink); margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: var(--terra); }
+  .hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--ink-light); max-width: 460px; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--terra); color: #fff; padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--terra-dark); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); padding: 0.85rem 2rem; border-radius: 2px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; transition: all 0.2s; }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+  .hero-right { position: relative; background: var(--ocean); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px); }
+  .hero-visual { position: relative; z-index: 1; text-align: center; padding: 3rem; }
+  .avatar-ring { width: 180px; height: 180px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; animation: float 4s ease-in-out infinite; }
+  .avatar-inner { width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, #C4622D 0%, #2B5F75 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: #fff; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 1rem; text-align: center; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: #fff; display: block; }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 0.25rem; }
+  section { padding: 5rem 4rem; }
+  .section-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3vw, 2.8rem); color: var(--ink); margin-bottom: 3rem; line-height: 1.15; }
+  .about { background: #fff; }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { font-size: 1rem; line-height: 1.85; color: var(--ink-light); margin-bottom: 1.25rem; }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+  .skills-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .skill-header { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--ink); }
+  .skill-bar { height: 3px; background: var(--sand); border-radius: 2px; overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--terra), var(--ocean)); animation: fillBar 1.5s ease both; }
+  .projects { background: var(--cream); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card { background: #fff; border: 1px solid var(--sand); border-radius: 4px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,22,18,0.1); }
+  .project-header { padding: 2rem 2rem 1rem; border-bottom: 1px solid var(--sand); }
+  .project-icon { width: 40px; height: 40px; border-radius: 4px; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem; }
+  .project-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .project-card p { font-size: 0.875rem; line-height: 1.65; color: var(--ink-light); }
+  .project-footer { padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 3px 8px; background: var(--cream); color: var(--ink-light); border-radius: 2px; letter-spacing: 0.05em; }
+  .project-link { font-size: 0.8rem; color: var(--terra); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
+  .project-link:hover { color: var(--terra-dark); }
+  .experience { background: #fff; }
+  .timeline { display: flex; flex-direction: column; gap: 0; max-width: 800px; }
+  .timeline-item { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; padding-bottom: 2.5rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: 139px; top: 8px; bottom: 0; width: 1px; background: var(--sand); }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mist); letter-spacing: 0.05em; padding-top: 4px; text-align: right; }
+  .timeline-dot { position: absolute; left: 133px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: var(--cream); border: 2px solid var(--terra); }
+  .timeline-content h3 { font-weight: 500; font-size: 1rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .timeline-content .company { font-size: 0.8rem; color: var(--terra); margin-bottom: 0.75rem; font-weight: 500; }
+  .timeline-content p { font-size: 0.875rem; line-height: 1.7; color: var(--ink-light); }
+  .contact { background: var(--ink); color: #fff; text-align: center; padding: 6rem 4rem; }
+  .contact .section-tag { color: var(--terra); }
+  .contact h2 { color: #fff; margin-bottom: 1rem; }
+  .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.55); margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .contact-link { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; color: #fff; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; transition: all 0.2s; }
+  .contact-link:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+  .footer-note { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes fillBar { from { width: 0; } }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; } .hero-right { min-height: 300px; }
+    .hero-left { padding: 3rem 1.5rem; } section { padding: 3rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; } .timeline-item { grid-template-columns: 100px 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">SJ</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Available for remote roles</div>
+    <h1>Samantha<br><em>Joslin</em></h1>
+    <p class="hero-desc">Software engineering student turning 8+ years of operations leadership into a career in tech. I build clean, practical tools and bring a people-first mindset to every line of code.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="avatar-ring"><div class="avatar-inner">SJ</div></div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Years Leading Teams</span></div>
+        <div class="stat"><span class="stat-num">B.S.</span><span class="stat-label">Software Eng. 2026</span></div>
+        <div class="stat"><span class="stat-num">AWS</span><span class="stat-label">Cert. In Progress</span></div>
+        <div class="stat"><span class="stat-num">🇵🇹</span><span class="stat-label">Remote · Portugal</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="section-tag">// about me</div>
+  <h2>Engineer by degree,<br>operator by experience.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a software engineering student at <strong>Southern New Hampshire University</strong>, graduating in 2026. Before pivoting to tech, I spent nearly a decade managing teams, systems, and operations across hospitality, wellness, and retail.</p>
+      <p>I bring <strong>real-world problem solving</strong> to my code: I've managed client databases, built reporting systems, and automated workflows long before I formally studied software engineering. Now I'm combining that experience with Python, C++, and cloud fundamentals.</p>
+      <p>I'm currently pursuing my <strong>AWS Cloud Practitioner certification</strong> and actively looking for fully remote junior developer roles. Based in Maui, Hawaii — soon relocating to Portugal 🌊</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><div class="skill-header"><span>Python</span><span>Intermediate</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>C++</span><span>Learning</span></div><div class="skill-bar"><div class="skill-fill" style="width:40%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Git & GitHub</span><span>Comfortable</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>HTML & CSS</span><span>Learning</span></div><div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Agile / Scrum</span><span>Strong</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>AWS Cloud (CLF-C02)</span><span>In Progress</span></div><div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="projects" id="projects">
+  <div class="section-tag">// projects</div>
+  <h2>Things I've built.</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📝</div>
+        <h3>Python Task Tracker</h3>
+        <p>A command-line task management app with persistent JSON storage. Add, view, complete, and delete tasks — all from your terminal.</p>
+      </div>
+      <div class="project-footer">
+        <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span><span class="tag">JSON</span></div>
+        <a href="https://github.com/Smjoslin95/python-task-tracker" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:var(--ocean)">🌐</div>
+        <h3>Portfolio Website</h3>
+        <p>This site! Built with vanilla HTML, CSS, and JavaScript. Responsive design, smooth scrolling, and a clean typographic layout.</p>
+      </div>
+      <div class="project-footer">
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        <a href="https://github.com/Smjoslin95/samantha-joslin.github.io" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card" style="border: 1.5px dashed var(--sand);">
+      <div class="project-header">
+        <div class="project-icon" style="background:#E8E0D0; font-size:1rem; color:var(--ink-light)">🔜</div>
+        <h3>Coming Soon</h3>
+        <p>Next project in progress — a Python budget tracker with SQLite storage and data summaries. Check back soon!</p>
+      </div>
+      <div class="project-footer">
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQLite</span></div>
+        <span class="project-link" style="color:var(--mist); cursor:default">In Progress</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="experience" id="experience">
+  <div class="section-tag">// experience</div>
+  <h2>Where I've been.</h2>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-date">2024–Present</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Front Desk Agent</h3><div class="company">Sands of Kahana</div><p>Operated property management systems for reservations, check-ins, and payments. Multi-system data entry and guest troubleshooting.</p></div></div>
+    <div class="timeline-item"><div class="timeline-date">2023–Present</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Spa Coordinator</h3><div class="company">Ho'omana Spa, Maui</div><p>Managed client database, digital records, and booking systems. Contributed to social media marketing strategy and tracked engagement analytics.</p></div></div>
+    <div class="timeline-item"><div class="timeline-date">2021–2024</div><div class="timeline-dot"></div><div class="timeline-content"><h3>General Store Manager</h3><div class="company">Maui Wellness Group</div><p>Managed inventory systems, financial reconciliations, and sales reporting. Led team and maintained compliance documentation.</p></div></div>
+    <div class="timeline-item"><div class="timeline-date">2016–2021</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Assistant Store Manager</h3><div class="company">Starbucks, Massachusetts</div><p>Trained and developed shift teams, oversaw financial reconciliation, and collaborated on revenue goal strategy.</p></div></div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="section-tag">// contact</div>
+  <h2>Let's work together.</h2>
+  <p class="contact-sub">I'm actively looking for fully remote junior developer roles. If you're building something interesting and need someone who ships, learns fast, and actually cares — let's talk.</p>
+  <div class="contact-links">
+    <a href="mailto:smjoslin95@gmail.com" class="contact-link">📧 smjoslin95@gmail.com</a>
+    <a href="https://www.linkedin.com/in/samantha-joslin95" class="contact-link" target="_blank">💼 LinkedIn</a>
+    <a href="https://github.com/Smjoslin95" class="contact-link" target="_blank">🐙 GitHub</a>
+  </div>
+  <p class="footer-note">Samantha Joslin · Maui, Hawaii · Open to Remote · © 2026</p>
+</section>
+</body>
+</html>
