@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samantha Joslin — Software Engineer</title>
+<meta name="description" content="Samantha Joslin: software engineer turning years of operations leadership into shipped, practical tools. Space-ops platforms, quantum scheduling, and a local-first migraine tracker. Hawaii-based, remote.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smjoslin95.github.io/">
+<meta property="og:title" content="Samantha Joslin — Software Engineer">
+<meta property="og:description" content="Builder by practice, operator by experience. Space-ops platforms, quantum scheduling, and a local-first migraine tracker. Hawaii-based, remote.">
+<meta property="og:image" content="https://smjoslin95.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://smjoslin95.github.io/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,6 +79,9 @@ h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3vw, 2.8rem)
 .tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 3px 8px; background: var(--sand); color: var(--ink-light); border-radius: 2px; letter-spacing: 0.05em; }
 .project-link { font-size: 0.8rem; color: var(--terra-dark); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
 .project-link:hover { color: var(--ocean); }
+.project-links { display: flex; gap: 1rem; }
+.project-footer { gap: 1rem; align-items: flex-start; }
+.project-link { white-space: nowrap; flex-shrink: 0; }
 .project-note { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--mist); letter-spacing: 0.03em; }
 .experience { background: #fff; }
 .timeline { display: flex; flex-direction: column; gap: 0; max-width: 800px; }
@@ -117,6 +130,7 @@ nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
 <p class="hero-desc">Software engineer turning 8+ years of operations leadership into shipped, practical tools — from a space infrastructure platform to a healthcare data pipeline. I build clean, functional systems and bring a people-first mindset to every line of code.</p>
 <div class="hero-cta">
 <a href="#projects" class="btn-primary">View My Work</a>
+<a href="resume.pdf" class="btn-outline" target="_blank">Resume ↓</a>
 <a href="#contact" class="btn-outline">Get in Touch</a>
 </div>
 </div>
@@ -172,13 +186,25 @@ nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
 
 <div class="project-card">
 <div class="project-header">
-<div class="project-icon" style="background:#E86080">📊</div>
-<h3>Clinical Outcomes Data Pipeline</h3>
-<p>Leading data cleaning, coding standardization, and statistical analysis for a company-wide clinical outcomes report spanning ~2,200 records across three treatment programs, using a validated quality-of-life outcome measure.</p>
+<div class="project-icon" style="background:#E86080">⚛️</div>
+<h3>GroundScape Quantum</h3>
+<p>Grover's quantum search applied to conflict-free ground-station scheduling, running on a quantum simulator I wrote from scratch in NumPy. Includes an interactive live demo.</p>
 </div>
 <div class="project-footer">
-<div class="tags"><span class="tag">Data Analysis</span><span class="tag">Python</span><span class="tag">Statistics</span></div>
-<span class="project-note">Internal / in progress</span>
+<div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Quantum</span></div>
+<div class="project-links"><a href="https://smjoslin95.github.io/groundscape-quantum/" class="project-link" target="_blank">Live demo →</a><a href="https://github.com/Smjoslin95/groundscape-quantum" class="project-link" target="_blank">Code →</a></div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-header">
+<div class="project-icon" style="background:#D88058">🧠</div>
+<h3>Migraine Log</h3>
+<p>A private, local-first mobile app built for logging migraines mid-attack: one-tap quick log, symptom and pain tracking, and medication overuse alerts that count treatment days per med class against clinical thresholds.</p>
+</div>
+<div class="project-footer">
+<div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span><span class="tag">SQLite</span></div>
+<a href="https://github.com/Smjoslin95/migraine-log" class="project-link" target="_blank">View →</a>
 </div>
 </div>
 
@@ -194,30 +220,6 @@ nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
 </div>
 </div>
 
-<div class="project-card">
-<div class="project-header">
-<div class="project-icon" style="background:#E86080">🌺</div>
-<h3>Spa Management System</h3>
-<p>A full business management tool for small spas — client records, appointment scheduling, and financial tracking with income/expense summaries. Built with Python and SQLite.</p>
-</div>
-<div class="project-footer">
-<div class="tags"><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">CLI</span></div>
-<a href="https://github.com/Smjoslin95/spa-management-system" class="project-link" target="_blank">View →</a>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-header">
-<div class="project-icon" style="background:#D88058">🌐</div>
-<h3>Portfolio Website</h3>
-<p>This site! Built with vanilla HTML, CSS, and JavaScript. Responsive design, smooth scrolling, and a warm Hawaiian color palette.</p>
-</div>
-<div class="project-footer">
-<div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-<a href="https://github.com/Smjoslin95/smjoslin95.github.io" class="project-link" target="_blank">View →</a>
-</div>
-</div>
-
 </div>
 </section>
 
@@ -226,7 +228,7 @@ nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
 <h2>Where I've been.</h2>
 <div class="timeline">
 
-<div class="timeline-item"><div class="timeline-date">Aug 2026–<br>Present</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Patient Care Assistant (PCA), Overnight</h3><div class="company">'Ai Pono Hawaii</div><p>Overnight patient care and safety monitoring in a JCAHO-accredited residential eating disorder treatment facility. Hourly rounding, clinical documentation, and shift-to-shift care continuity — alongside leading the clinic's data project above.</p></div></div>
+<div class="timeline-item"><div class="timeline-date">Aug 2026–<br>Present</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Patient Care Assistant (PCA), Overnight</h3><div class="company">'Ai Pono Hawaii</div><p>Overnight patient care and safety monitoring in a JCAHO-accredited residential eating disorder treatment facility. Hourly rounding, clinical documentation, and shift-to-shift care continuity — alongside leading the clinic's outcomes data project.</p></div></div>
 
 <div class="timeline-item"><div class="timeline-date">2024–2026</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Front Desk Agent</h3><div class="company">Sands of Kahana</div><p>Operated property management systems for reservations, check-ins, and payments, including night audit duties. Multi-system data entry and guest troubleshooting.</p></div></div>
 
